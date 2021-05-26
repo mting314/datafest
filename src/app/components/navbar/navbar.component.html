@@ -1,0 +1,21 @@
+<nav (scroll)="onWindowScroll($event)" *ngIf="mobile" class="navigation-mobile">
+  <div class="nav-wrapper">
+    <a href='/'><h5 class="name">Michael Ting</h5></a>
+    <div class="button-wrapper">
+      <a href="mailto:mting314@gmail.com" class="btn-floating btn-small waves-effect waves-light white navs"><i class="fa fa-envelope"></i></a>
+      <a href="https://github.com/mting314" target="_blank" class="btn-floating btn-small waves-effect waves-light white navs"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/michael-ting314/" target="_blank" class="btn-floating btn-small waves-effect waves-light white navs"><i class="fa fa-linkedin"></i></a>
+    </div>
+  </div>
+</nav>
+
+<nav (scroll)="onWindowScroll($event)" *ngIf="!mobile">
+    <div class="nav-wrapper">
+      <h5 class="name">Michael Ting</h5>
+      <div class="button-wrapper">
+        <a href="mailto:mting314@gmail.com" class="btn-floating btn-small waves-effect waves-light white navs"><i class="fa fa-envelope"></i></a>
+        <a href="https://github.com/mting314" target="_blank" class="btn-floating btn-small waves-effect waves-light white navs"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/michael-ting314/" target="_blank" class="btn-floating btn-small waves-effect waves-light white navs"><i class="fa fa-linkedin"></i></a>
+      </div>
+    </div>
+</nav>

@@ -1,0 +1,134 @@
+<p>
+  This was Team Data Dino Nuggets' submission for UCLA's 2021 DataFest, exactly as we submitted it.
+</p>
+
+<h1 class="page-title">Substance Abuse and Mental Health</h1>
+<h2 class="page-title">Is America's Opioid Crisis <br> the symptom of overarching mental health issues?</h2>
+
+<div class="top-summary">
+  <p>As if the pandemic wasn't enough, it's no secret that America finds itself another epidemic: the opium epidemic. As of 2020, the US Department of Health and Human Services <a>reported over 70,000 dead by drug overdose</a> while the CDC declares an economic cost of <a href="https://www.drugabuse.gov/drug-topics/opioids/opioid-overdose-crisis">$78.5 billion per year</a>.</p>
+
+  <p>In light of this, Rocky Mountain Poison and Drug Safety Center have been gathering hundreds of thousands of electronic survey responses 
+    as part of an effort to gain a better understanding of who might be most vulnerable to, and if we're lucky, maybe even a little bit of insight into why.
+  </p>
+
+</div>
+
+<h2 class="section-title">Exploring the relationship between mental health disorders and drug abuse</h2>
+
+  <!-- <img class="svg-tempscale" src="../../../assets/img/Autism_and_NMU_Drug_Use.png"> -->
+  <img class="svg-tempscale" src="./assets/img/Autism_and_NMU_Drug_Use.png">
+
+
+<br>
+<br>
+<br>
+
+<img class="svg-tempscale" src="./assets/img/heatmap.png">
+
+<br>
+<br>
+<br>
+
+<img class="svg-tempscale" src="./assets/img/ment_adhd_nmu_ever.png">
+
+<br>
+<br>
+<br>
+
+<img class="svg-tempscale" src="./assets/img/ment_aut_nmu_ever.png">
+
+<h2 class="section-title">Comparing four mental health disorders across the states</h2>
+<p class="summary">
+  After performing that exploratory analysis just to confirm that in general people diagnosed with mental health disorders were indeed disproportionately negatively affected, it was time to start creating some more sophisticated plots. Thanks to some guidance from the mentors, we realized it would be a very worthwhile pursuit to perform similar calculations and visualizations across all the different states. This would allows us to glean interesting information by comparing different <i>subsets</i> of the data - not only to see how people diagnosed living in different areas might be impacted by this substance abuse phenomenon differently, but also possibly even why. In particular, how might say the numbers may differ in rural states versus urban ones, or possibly if the fact many states were <a href="https://en.wikipedia.org/wiki/Timeline_of_cannabis_laws_in_the_United_States">still in the process of legalization of recreational marijuana</a> at the time.
+</p>
+<div class="button-div">
+  <button *ngIf="!scenarioAttention" mat-stroked-button color="warn" (click)="scenarioADHD()">ADHD</button>
+  <button *ngIf="scenarioAttention" mat-flat-button color="warn">ADHD</button>
+  <button *ngIf="!scenarioAnx" mat-stroked-button color="warn" (click)="scenarioANX()">Anxiety</button>
+  <button *ngIf="scenarioAnx" mat-flat-button color="warn">Anxiety</button>
+
+</div>
+<br>
+<div class="button-div">
+  <button *ngIf="!scenarioAut" mat-stroked-button color="warn" (click)="scenarioAUTISM()">Autism</button>
+  <button *ngIf="scenarioAut" mat-flat-button color="warn">Autism</button>
+  <button *ngIf="!scenarioDepre" mat-stroked-button color="warn" (click)="scenarioDEP()">Depression</button>
+  <button *ngIf="scenarioDepre" mat-flat-button color="warn">    Depression    </button>
+</div>
+
+
+
+
+
+
+<div id = 'title'>
+  <p class="summary">Examine the difference between undiagnosed users who were perscribed drugs and then started using nonmedically, versus people diagnosed with <strong class="highlight">{{this.scenario}}</strong> that were perscribed drugs then started using nonmedically:</p>
+  <!-- <button *ngIf=!play (click)="playButton()" mat-mini-fab color="warn" id="play" aria-label="Example icon button with a menu icon">
+    <mat-icon>play_arrow</mat-icon>
+  </button> -->
+  <button *ngIf=refresh (click)="refreshButton()" mat-mini-fab color="warn" id="refresh" aria-label="Example icon button with a menu icon">
+    <mat-icon>refresh</mat-icon>
+  </button>
+ 
+  
+</div>
+
+<h2 class="title-tag">{{titleTag}}</h2>
+<mat-slider min={{min}} max={{max}} step={{step}} value={{value}} tickInterval={{tickInterval}} disabled="false"  color="warn" (input)="pitch($event)"></mat-slider>
+<img class="svg-tempscale" src='../assets/img/scale.png'>
+<div id="map"></div>
+<div class = "world-map"></div>
+
+
+
+<div class = "geopolitics-display">
+  <div class="line-wrapper">
+
+  </div>
+  <div class="country-content">
+    <div *ngIf="scenarioADHD" class = "canada-div">
+      <div class="line-wrapper"></div>
+      <h2 class="projection-country">ADHD</h2>
+      <p class="projection-title">Distribution of DAST-10 Scores for Diagnosed vs. Undiagnosed Users</p>
+      <div class="projection-summary">
+        <!-- <small class="projection-a2"><strong>Scenario A2:</strong> 10.15 &#176;F</small> -->
+
+      </div>
+
+    </div>
+    <div *ngIf="scenarioAnx" class = "russia-div">
+      <div class="line-wrapper">
+
+      </div>
+      <h2 class="projection-country">Anxiety</h2>
+      <p class="projection-title">Distribution of DAST-10 Scores for Diagnosed vs. Undiagnosed Users</p>
+      <div class="projection-summary">
+
+      </div>
+
+    </div>
+    <div *ngIf="scenarioAut" class = "afghanistan-div">
+      <div class="line-wrapper">
+
+      </div>
+      <h2 class="projection-country">Autism</h2>
+      <p class="projection-title">Distribution of DAST-10 Scores for Diagnosed vs. Undiagnosed Users</p>
+
+      </div>
+
+    </div>
+    <div *ngIf="scenarioDepre" class = "us-div">
+      <div class="line-wrapper">
+
+      </div>
+      <h2 class="projection-country">Depression</h2>
+      <p class="projection-title">Distribution of DAST-10 Scores for Diagnosed vs. Undiagnosed Users</p>
+      <div class="projection-summary">
+      </div>
+
+    </div>
+  </div>
+
+
+
